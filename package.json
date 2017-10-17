@@ -1,6 +1,6 @@
 {
   "name": "manuel-js",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "A simple tool for editing files in Github, most likely as part of a CI process",
   "main": "index.js",
   "bin": {
