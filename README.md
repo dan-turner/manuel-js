@@ -12,4 +12,20 @@
 
 via [npm](https://github.com/npm/npm)
 
-    $ npm install manuel-js
+    $ npm install -g manuel-js
+
+## Usage
+
+```
+export GH_TOKEN="<github personal access token with appropriate permissions>"
+manuel \
+  --org dan-turner \
+  --repo manuel-js \
+  --branch test \
+  --file test/variables.yaml \
+  --author Manuel \
+  --email no-reply@manuel.fake \
+  --message "Update 'example-app'" \
+  --path example-app.image \
+  --value a98049c7251b6b12785da9666e10e14cd1cfcddc
+```

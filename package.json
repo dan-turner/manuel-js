@@ -1,0 +1,26 @@
+{
+  "name": "manuel-js",
+  "version": "0.5.0",
+  "description": "A simple tool for editing files in Github, most likely as part of a CI process",
+  "main": "index.js",
+  "bin": {
+    "manuel": "bin/manuel.js"
+  },
+  "scripts": {
+    "test": "node bin/manuel.js --org CBAInnovationLab --repo k8s-environment --branch test --file environments/test/variables.yaml --path heartsminds.image --author Manuel --email no-reply@commbanklabs.com.au --message \"Deploy heartsminds 'asdfasdf'\" --value asdasdf"
+  },
+  "repository": "git@github.com:dan-turner/manuel-js.git",
+  "author": "dan.p.turner@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "github": "^11.0.0",
+    "js-yaml": "^3.10.0",
+    "jsondiffpatch": "^0.2.4",
+    "lodash": "^4.17.4",
+    "minimist": "^1.2.0"
+  }
+}

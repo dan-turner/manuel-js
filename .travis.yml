@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  directories:
+  - node_modules
+  - $HOME/.yarn-cache
+before_script:
+- yarn link
+script:
+- |
+  manuel \
+    --author Manuel \
+    --email no-reply@manuel.fake \
+    --org dan-turner \
+    --repo manuel-js \
+    --branch test \
+    --file test/variables.yaml \
+    --message "Update 'example-app' to $TRAVIS_COMMIT" \
+    --path example-app.image \
+    --value $TRAVIS_COMMIT
+deploy:
+  provider: npm
+  email: dan.p.turner@gmail.com
+  api_key:
+    secure: fYPl+a3mJIpB7akOqYd9TsxS1RAhwwvdmlOiTTE3CY7L12LnFffsS8DqdpSvqrFTqgA4BnE/rkxqGr7DlgF6fgzh6hBNvAj6IY2TQzMV6HUvF654doc7x3gmwmrlul1IwS8owMoWbVfUK2gWw2eop8NJcwga7OvkWkwoEe68oPLl/CCi1+lIiUMhPLckSv4gERIRDfxaQUd4mcA/bLVXj04FKcg+UUJqWMwguzfCHWMAKNxbV1mk8g3xInduD+5WbWg6XXmDFaq7DlZM9bK9bjk4c2Ziy2vwlC/blLt96lRd/ws/wX2QI9eGjts7xyWD+F9aGjtp3yXMYo12BHxEszpOf/MyrPoQ2ckPZDv5lqNGk6cYQrpzOFL6isxaXw3sHBm5gWpr/rNV6RYyGekn47DGFd86YHF+1T6b224kNVZ1HZTlbZyWxbkSxg5/t2i3qmTDuOeI4gHdMVwGFK0NvL9iY+n5QKfNsLP5YmyUpkl8VvNkhNZRlS2gHdIuV+ShsZbscC6+D2PM6StTMP6MGlAGbYIlhOs/5CRHHaW4iUuzSb2Heafvf2NZPWrP4dexpMYkaj2erejYHaN1iv3xMe+ajcSsmSopiJDrdEO6V6oRMYrLIxeyxuB/Qwwi0xGwV5aoWPwlVwzFGXcHsG0k7ZE0qW+B7yIOnqWawCS6wNc=
+  on:
+    tags: true
+    repo: dan-turner/manuel-js
