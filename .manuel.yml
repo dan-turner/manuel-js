@@ -1,0 +1,7 @@
+org: dan-turner
+repo: manuel-js
+branch: test
+file: test/variables.yaml
+author: Manuel
+email: no-reply@manuel.fake
+path: 'example-app.image'

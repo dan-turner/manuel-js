@@ -10,14 +10,7 @@ before_script:
 script:
 - |
   manuel \
-    --author Manuel \
-    --email no-reply@manuel.fake \
-    --org dan-turner \
-    --repo manuel-js \
-    --branch test \
-    --file test/variables.yaml \
     --message "Update 'example-app' to $TRAVIS_COMMIT" \
-    --path example-app.image \
     --value $TRAVIS_COMMIT
 deploy:
   provider: npm

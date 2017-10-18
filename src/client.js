@@ -6,12 +6,13 @@ import { cloneDeep, get, set, isEqual } from 'lodash';
 
 const github = new GitHubApi();
 
-github.authenticate({
-  type: 'oauth',
-  token: process.env.GH_TOKEN
-});
 
 export async function patchFile(options) {
+  github.authenticate({
+    type: 'oauth',
+    token: options.githubToken
+  });
+
   const getResponse = await github.repos.getContent({
     owner: options.org,
     repo: options.repo,

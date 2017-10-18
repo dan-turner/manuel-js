@@ -27,3 +27,14 @@ manuel \
   --path example-app.image \
   --value a98049c7251b6b12785da9666e10e14cd1cfcddc
 ```
+
+## Configuration
+
+Options can be specified as arguments (as above), or in config files, or a combination of both. Values are merged in the following order precedence, from lowest to highest:
+
+* `<home directory>/.manuel.yml` (good place to specify `githubToken`)
+* `<current dir>/.manuel.yml`
+* With the config argument `--config <path to a .yml>`
+* As individual arguments as in the usage example
+
+See [.travis.yml](.travis.yml) for an example of leveraging a mix of config files and CLI arguments.
