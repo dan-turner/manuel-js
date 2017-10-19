@@ -28,6 +28,10 @@ manuel \
   --value a98049c7251b6b12785da9666e10e14cd1cfcddc
 ```
 
+## Supported Formats
+
+Manuel supports both `yaml` and `json`, it will guess the format based on the extension of the `--file` argument or you can specify explicitly with the `--format` argument.
+
 ## Configuration
 
 Options can be specified as arguments (as above), or in config files, or a combination of both. Values are merged in the following order precedence, from lowest to highest:

@@ -10,7 +10,11 @@ before_script:
 script:
 - |
   manuel \
-    --message "Update 'example-app' to $TRAVIS_COMMIT" \
+    --message "Update 'example-app' in yaml to $TRAVIS_COMMIT" \
+    --value $TRAVIS_COMMIT
+  manuel \
+    --file test/variables.json \
+    --message "Update 'example-app' in json to $TRAVIS_COMMIT" \
     --value $TRAVIS_COMMIT
 deploy:
   provider: npm

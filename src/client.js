@@ -3,9 +3,21 @@ import yaml from 'js-yaml';
 import jsondiff from 'jsondiffpatch';
 import formatDiff from 'jsondiffpatch/src/main';
 import { cloneDeep, get, set, isEqual } from 'lodash';
+import { serialise, deserialise } from './serialiser';
 
 const github = new GitHubApi();
 
+function getFormat(options) {
+  if(options.format) {
+    return format;
+  } else if(options.file.endsWith('.yml') || options.file.endsWith('.yaml')) {
+    return 'yaml';
+  } else if(options.file.endsWith('.json')) {
+    return 'json';
+  } else {
+    throw 'Unable to determine file format';
+  }
+}
 
 export async function patchFile(options) {
   github.authenticate({
@@ -22,7 +34,8 @@ export async function patchFile(options) {
 
   const originalContent = Buffer.from(getResponse.data.content, 'base64').toString('utf8');
 
-  const variables = yaml.safeLoad(originalContent);
+  const format = getFormat(options);
+  const variables = deserialise(format, originalContent);
 
   const newVariables = cloneDeep(variables);
 
@@ -40,7 +53,7 @@ export async function patchFile(options) {
     jsondiff.console.log(delta);
     console.log('```');
 
-    const newContent = yaml.safeDump(newVariables);
+    const newContent = serialise(format, newVariables);
     const encodedContent = Buffer.from(newContent).toString('base64');
 
     const author = {
