@@ -6,6 +6,8 @@
 
 [![Build Status](https://api.travis-ci.org/dan-turner/manuel-js.svg?branch=master)](http://travis-ci.org/dan-turner/manuel-js)
 
+Manuel makes it easy to script up modifications to `yaml` or `json` files on Github, such as during a CI pipeline.
+
 ## Installation
 
 via [npm](https://github.com/npm/npm)
