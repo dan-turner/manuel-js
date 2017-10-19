@@ -8,7 +8,6 @@ async function main() {
   delete args['_'];
 
   const config = load(args);
-  console.log(config);
 
   console.log('\nManuel.JS');
   console.log('--------------------');
@@ -18,6 +17,7 @@ async function main() {
   console.log(`Author: ${config.author} <${config.email}>`);
   console.log(`Message: ${config.message}`);
   console.log(`\n-> ${config.file}`);
+
   await patchFile(config);
 }
 
