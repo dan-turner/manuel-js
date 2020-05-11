@@ -13,11 +13,11 @@
   "author": "dan.p.turner@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "@octokit/rest": "^17.8.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "github": "^11.0.0",
     "js-yaml": "^3.10.0",
     "jsondiffpatch": "^0.2.4",
     "lodash": "^4.17.4",

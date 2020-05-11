@@ -1,11 +1,11 @@
-import GitHubApi from 'github';
+import { Octokit } from '@octokit/rest';
 import yaml from 'js-yaml';
 import jsondiff from 'jsondiffpatch';
 import formatDiff from 'jsondiffpatch/src/main';
 import { cloneDeep, get, set, isEqual } from 'lodash';
 import { serialise, deserialise } from './serialiser';
 
-const github = new GitHubApi();
+const octokit = new Octokit();
 
 function getFormat(options) {
   if(options.format) {
@@ -20,12 +20,12 @@ function getFormat(options) {
 }
 
 export async function patchFile(options) {
-  github.authenticate({
+  octokit.authenticate({
     type: 'oauth',
     token: options.githubToken
   });
 
-  const getResponse = await github.repos.getContent({
+  const getResponse = await octokit.repos.getContent({
     owner: options.org,
     repo: options.repo,
     ref: options.branch,
@@ -61,7 +61,7 @@ export async function patchFile(options) {
       email: options.email
     };
 
-    const updateResponse = await github.repos.updateFile({
+    const updateResponse = await octokit.repos.updateFile({
       owner: options.org,
       repo: options.repo,
       branch: options.branch,
