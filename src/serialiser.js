@@ -2,7 +2,7 @@ import yaml from 'js-yaml';
 
 export function deserialise(format, content) {
   if (format === 'yml' || format === 'yaml') {
-    return yaml.safeLoad(content);
+    return yaml.load(content);
   } else if (format === 'json') {
     return JSON.parse(content);
   }
@@ -11,7 +11,7 @@ export function deserialise(format, content) {
 
 export function serialise(format, variables) {
   if (format === 'yml' || format === 'yaml') {
-    return yaml.safeDump(variables);
+    return yaml.dump(variables);
   } else if (format === 'json') {
     return JSON.stringify(variables, null, 2);
   }

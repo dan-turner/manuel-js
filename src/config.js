@@ -6,7 +6,7 @@ function loadPath(path) {
   if(!fs.existsSync(path)) {
     return {};
   }
-  return yaml.safeLoad(fs.readFileSync(path, 'utf8'));
+  return yaml.load(fs.readFileSync(path, 'utf8'));
 }
 
 export function load(options) {

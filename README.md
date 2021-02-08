@@ -4,7 +4,7 @@
 
 *It's not manual, it's Manuel.*
 
-[![Build Status](https://api.travis-ci.org/dan-turner/manuel-js.svg?branch=master)](http://travis-ci.org/dan-turner/manuel-js)
+* [Forked](https://github.com/dan-turner/manuel-js) for maintainence purposes *
 
 Manuel makes it easy to script up modifications to `yaml` or `json` files on Github, such as during a CI pipeline.
 

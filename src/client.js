@@ -1,7 +1,6 @@
 import GitHubApi from 'github';
 import yaml from 'js-yaml';
 import jsondiff from 'jsondiffpatch';
-import formatDiff from 'jsondiffpatch/src/main';
 import { cloneDeep, get, set, isEqual } from 'lodash';
 import { serialise, deserialise } from './serialiser';
 
